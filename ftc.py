@@ -19,9 +19,9 @@ def ftc(username, password):
 	print r.status_code
 
 # top-level domains
-TLDS = ('com net org mil edu de biz de ch at ru de tv com').split()
+TLDS = ('com net org mil edu com').split()
 
-domain = ('apple gmail hotmail').split()
+domain = ('apple gmail hotmail iCloud').split()
 
 def gen_name(length):
 	return '.'.join(fake.name().split())
