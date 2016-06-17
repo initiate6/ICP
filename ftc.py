@@ -46,4 +46,4 @@ if __name__ == "__main__":
 	while True:
 
 		password = choice(f)
-		ftc(fake_address(), password)
+		ftc(fake_address(), password.strip('\n'))
