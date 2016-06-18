@@ -9,19 +9,25 @@ from faker import Faker
 
 #FuckTheChinese
 def ftc(username, password):
-	#url = 'http://apple-ios-icloud-verify.com/Home/Save'
-	url = 'http://02246.poruzstw.cn/Home/Save'
-	data = { 'u' : username, 'p' : password }
+	try:
+		
+		#url = 'http://apple-ios-icloud-verify.com/Home/Save'
+		url = 'http://02246.poruzstw.cn/Home/Save'
+		data = { 'u' : username, 'p' : password }
 
-	s = requests.session()
-	r = s.post(url, data, verify=False)
+		s = requests.session()
+		r = s.post(url, data, verify=False)
 
-	print r.status_code
+		print r.status_code
+		
+	except Exception as e:
+		print e.read()
+		pass
 
 # top-level domains
-TLDS = ('com net org mil edu com').split()
+TLDS = ('com com com com com com net org mil edu com').split()
 
-domain = ('apple gmail hotmail iCloud').split()
+domain = ('apple gmail hotmail me iCloud').split()
 
 def gen_name(length):
 	return '.'.join(fake.name().split())
@@ -34,16 +40,15 @@ def fake_address():
         host = gen_domain()
         return '%s@%s.%s' % (user, host, choice(TLDS))
 
-
-
 if __name__ == "__main__":
-
+	#Create Faker object
 	fake = Faker()
 	
+	#Read file once and hold in memory
 	fp = open('passwords.txt', 'r')
 	f = fp.readlines()
 
+	#Run forever
 	while True:
-
-		password = choice(f)
-		ftc(fake_address(), password.strip('\n'))
+		
+		ftc(fake_address(), choice(f).strip('\n'))
