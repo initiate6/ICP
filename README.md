@@ -1,4 +1,8 @@
-# iCloud_phishing_defeat
+# iCloud_phishing
+
+iCP = iCloud Phishing
+
+
 Some douche is trying to steal iCloud creds
 
 pip install fake-factory
